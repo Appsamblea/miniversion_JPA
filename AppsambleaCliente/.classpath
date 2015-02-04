@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container/AppsambleaJAXB"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/Json/java-json.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/Jersey/aopalliance-repackaged-2.3.0-b10.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/Jersey/asm-debug-all-5.0.2.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/Jersey/hk2-api-2.3.0-b10.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/Jersey/hk2-locator-2.3.0-b10.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/Jersey/hk2-utils-2.3.0-b10.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/Jersey/javassist-3.18.1-GA.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/Jersey/javax.annotation-api-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/Jersey/javax.inject-2.3.0-b10.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/Jersey/javax.servlet-api-3.0.1.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/Jersey/javax.ws.rs-api-2.0.1.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/Jersey/jaxb-api-2.2.7.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/Jersey/jersey-client.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/Jersey/jersey-common.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/Jersey/jersey-container-servlet.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/Jersey/jersey-container-servlet-core.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/Jersey/jersey-guava-2.13.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/Jersey/jersey-server.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/Jersey/org.osgi.core-4.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/Jersey/osgi-resource-locator-1.0.1.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/Jersey/persistence-api-1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/Jersey/validation-api-1.1.0.Final.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
