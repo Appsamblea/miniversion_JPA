@@ -74,5 +74,12 @@ public class AsambleaRecurso {
 	  BD bd = new BD();
 	  bd.eliminarAsamblea(a);
 	  return Response.noContent().build();
-  }  
+  }
+  
+  @GET
+  @Path("/prueba")
+  @Produces(MediaType.APPLICATION_XML)
+  public String string(){
+	  return "HOLA A TODO EL MUNDO!";
+  }
 } 
