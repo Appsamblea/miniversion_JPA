@@ -1,12 +1,14 @@
 package objetosXML;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "asamblea")
-public class Asamblea {
+public class Asamblea implements Serializable{
+	private static final long serialVersionUID = 1L;
 	private long id;
 	private String nombre;
 	private String descripcion;

@@ -49,6 +49,12 @@ public class AsambleaRecurso {
 		  asa.setNombre(as.getNombre());
 		  lista.add(asa);
 	  }
+	  Asamblea as = new Asamblea();
+	  as.setCreador("YO");
+	  as.setDescripcion("Descripción");
+	  as.setId((long)0);
+	  as.setNombre("Nombre");
+	  lista.add(as);
 	  return Response.status(200).entity(lista).build();
   } 
   

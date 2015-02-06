@@ -1,5 +1,6 @@
 package objetosBD;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -11,13 +12,16 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @NamedQueries({
 	@NamedQuery(name="todos",
 			query="SELECT a FROM Asamblea a")
 })
-public class Asamblea {
+public class Asamblea implements Serializable{
+	
 	  private static final long serialVersionUID = 1L;
 	  @Id
 	  @GeneratedValue
@@ -25,6 +29,8 @@ public class Asamblea {
 	  private String nombre;
 	  private String descripcion;
 	  private String creador;
+	  
+	  @Temporal(TemporalType.DATE)
 	  private Date fecha;
 	  
 	 @OneToMany(cascade = CascadeType.ALL, mappedBy="id", fetch = FetchType.LAZY)

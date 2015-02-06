@@ -15,7 +15,7 @@ public class BD {
 	private static EntityManager em;
 	
 	public BD(){
-		factory = Persistence.createEntityManagerFactory("Appsamblea");
+		factory = Persistence.createEntityManagerFactory("appsamblea");
 	}
     
     public void insertarAsamblea(objetosXML.Asamblea asamblea) {

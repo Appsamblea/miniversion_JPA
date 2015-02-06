@@ -1,6 +1,8 @@
 package objetosBD;
 
+import java.io.Serializable;
 import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -8,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @NamedQueries({
@@ -17,14 +21,15 @@ import javax.persistence.NamedQuery;
 			query="SELECT m FROM Mensaje m "
 					+ "WHERE m.asamblea = :idAsamblea AND m.fecha > :fechaUltimo")
 })
-public class Mensaje {
-	
+public class Mensaje implements Serializable{
 	  private static final long serialVersionUID = 1L;
 	  @Id
 	  @GeneratedValue
 	  private long id;
 	  private String texto;
 	  private String emisor;
+	  
+	  @Temporal(TemporalType.DATE)
 	  private Date fecha;
 	  
 	  @ManyToOne(optional=false, fetch=FetchType.LAZY)
