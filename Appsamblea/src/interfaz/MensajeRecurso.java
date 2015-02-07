@@ -1,13 +1,7 @@
 package interfaz;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
+import java.util.ArrayList;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -39,11 +33,11 @@ public class MensajeRecurso {
 	  @PUT
 	  @Path("/todosmensajes")
 	  @Consumes(MediaType.APPLICATION_JSON)
-	  @Produces(MediaType.APPLICATION_JSON )
+	  @Produces(MediaType.APPLICATION_JSON)
 	  public Response todosMensajes(JAXBElement<Mensaje> mensaje){
 		  Mensaje m = mensaje.getValue();
 		  BD bd = new BD();
-		  List<objetosBD.Mensaje> listaBD = bd.actualizarMensajes(m.getIdAsamblea(), m.getFecha());
+		  ArrayList<objetosBD.Mensaje> listaBD = bd.actualizarMensajes(m.getIdAsamblea(), m.getFecha());
 		  ArrayList<Mensaje> lista = new ArrayList<Mensaje>();
 		  for(objetosBD.Mensaje me : listaBD){
 			  Mensaje men = new Mensaje();

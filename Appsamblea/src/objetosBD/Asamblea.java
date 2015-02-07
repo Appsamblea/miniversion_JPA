@@ -17,7 +17,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 @NamedQueries({
-	@NamedQuery(name="todos",
+	@NamedQuery(name="todasasambleas",
 			query="SELECT a FROM Asamblea a")
 })
 public class Asamblea implements Serializable{
@@ -33,7 +33,7 @@ public class Asamblea implements Serializable{
 	  @Temporal(TemporalType.DATE)
 	  private Date fecha;
 	  
-	 @OneToMany(cascade = CascadeType.ALL, mappedBy="id", fetch = FetchType.LAZY)
+	 @OneToMany(cascade = CascadeType.ALL, mappedBy="asamblea", fetch = FetchType.LAZY)
 	 private List<Mensaje> mensajes;
 	  
 	 public String getNombre() {

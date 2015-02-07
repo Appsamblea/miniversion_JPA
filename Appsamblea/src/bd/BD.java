@@ -2,6 +2,7 @@ package bd;
 
 import java.util.Date;
 import java.util.List;
+import java.util.ArrayList;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -55,18 +56,23 @@ public class BD {
     	}
     }
     
-    public List<Asamblea> getAsambleas(){
+    public ArrayList<Asamblea> getAsambleas(){
     	List<Asamblea> asambleas;
     	if(factory == null){
     		System.out.println("Factory es null");
     	}
     	em = factory.createEntityManager();
     	try{
-    		asambleas = em.createNamedQuery("todos").getResultList();
+    		asambleas = em.createNamedQuery("todasasambleas").getResultList();
     	}finally{
     		em.close();
     	}
-    	return asambleas;
+    	
+    	ArrayList<Asamblea> arrayAsambleas = new ArrayList<Asamblea>();
+    	for(Asamblea a: asambleas){
+    		arrayAsambleas.add(a);
+    	}
+    	return arrayAsambleas;
     }
     
     public Asamblea insertarMensaje(objetosXML.Mensaje mensaje) {
@@ -91,7 +97,7 @@ public class BD {
 		return asamblea;
     }
 
-	public List<Mensaje> actualizarMensajes(long idAsamblea, Date fecha) {
+	public ArrayList<Mensaje> actualizarMensajes(long idAsamblea, Date fecha) {
     	List<Mensaje> mensajes;
     	if(factory == null){
     		System.out.println("Factory es null");
@@ -105,6 +111,12 @@ public class BD {
     	}finally{
     		em.close();
     	}
-    	return mensajes;
+    	
+    	ArrayList<Mensaje> arrayMensajes = new ArrayList<Mensaje>();
+    	for(Mensaje m:mensajes){
+    		arrayMensajes.add(m);
+    	}
+    	
+    	return arrayMensajes;
 	}
 }

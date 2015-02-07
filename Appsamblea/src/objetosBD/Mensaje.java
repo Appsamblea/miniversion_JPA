@@ -8,6 +8,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.JoinColumn;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Temporal;
@@ -15,7 +16,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 @NamedQueries({
-	@NamedQuery(name="todos",
+	@NamedQuery(name="todosmensajes",
 			query="SELECT m FROM Mensaje m"),
 	@NamedQuery(name="actualizarmensajes",
 			query="SELECT m FROM Mensaje m "
@@ -32,8 +33,10 @@ public class Mensaje implements Serializable{
 	  @Temporal(TemporalType.DATE)
 	  private Date fecha;
 	  
-	  @ManyToOne(optional=false, fetch=FetchType.LAZY)
+	  @ManyToOne(fetch=FetchType.LAZY)
+	  @JoinColumn(name="idasamblea")	  
 	  private Asamblea asamblea;
+	  
 	public long getId() {
 		return id;
 	}
