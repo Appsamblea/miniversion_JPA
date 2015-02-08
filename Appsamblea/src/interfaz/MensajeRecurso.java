@@ -20,8 +20,7 @@ public class MensajeRecurso {
 	  @PUT
 	  @Path("/crearmensaje")
 	  @Consumes(MediaType.APPLICATION_JSON)
-	  public Response crearMensaje(JAXBElement<Mensaje> mensaje){
-		  Mensaje m = mensaje.getValue();
+	  public Response crearMensaje(Mensaje m){
 		  System.out.println("Mensaje recibido: " + m.getTexto());
 		  
 		  //Insterarlo en la base de datos
@@ -34,8 +33,7 @@ public class MensajeRecurso {
 	  @Path("/todosmensajes")
 	  @Consumes(MediaType.APPLICATION_JSON)
 	  @Produces(MediaType.APPLICATION_JSON)
-	  public Response todosMensajes(JAXBElement<Mensaje> mensaje){
-		  Mensaje m = mensaje.getValue();
+	  public Response todosMensajes(Mensaje m){
 		  BD bd = new BD();
 		  ArrayList<objetosBD.Mensaje> listaBD = bd.actualizarMensajes(m.getIdAsamblea(), m.getFecha());
 		  ArrayList<Mensaje> lista = new ArrayList<Mensaje>();

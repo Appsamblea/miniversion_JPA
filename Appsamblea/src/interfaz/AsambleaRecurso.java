@@ -11,9 +11,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.xml.bind.JAXBElement;
-import javax.ws.rs.core.GenericEntity;		//Para enviar listas
 
-import jersey.repackaged.com.google.common.collect.Lists;
 import bd.BD;
 import objetosXML.Asamblea;
 import objetosXML.Mensaje;
@@ -52,10 +50,6 @@ public class AsambleaRecurso {
 		  asa.setNombre(as.getNombre());
 		  lista.add(asa);
 	  }
-	  
-	  //GenericEntity<List<Asamblea>> glista = new GenericEntity<List<Asamblea>>(Lists.newArrayList(lista)){};
-	  
-	  //Fuente para usar GenericType: http://www.adam-bien.com/roller/abien/entry/jax_rs_returning_a_list
 	  return Response.ok(lista).build();
 
   } 
@@ -64,11 +58,12 @@ public class AsambleaRecurso {
   @PUT
   @Path("/crearasamblea")
   @Consumes(MediaType.APPLICATION_JSON)
-  public Response crearAsamblea(JAXBElement<Asamblea> asamblea){
-	  Asamblea a = asamblea.getValue();
-	  System.out.println("Asamblea recibida: " + a.getNombre());
+  public Response crearAsamblea(Asamblea asamblea){
+	  //Asamblea a = asamblea.getValue();
+	  System.out.println("Asamblea recibida: " + asamblea.getNombre());
+	  //System.exit(0);
 	  BD bd = new BD();
-	  bd.insertarAsamblea(a);
+	  bd.insertarAsamblea(asamblea);
 	  return Response.noContent().build();
   }
 
@@ -76,11 +71,10 @@ public class AsambleaRecurso {
   @PUT
   @Path("/eliminarasamblea")
   @Consumes(MediaType.APPLICATION_JSON)
-  public Response eliminarAsamblea(JAXBElement<Asamblea> asamblea){
-	  Asamblea a = asamblea.getValue();
-	  System.out.println("Asamblea recibida: " + a.getNombre());
+  public Response eliminarAsamblea(Asamblea asamblea){
+	  System.out.println("Asamblea recibida: " + asamblea.getNombre());
 	  BD bd = new BD();
-	  bd.eliminarAsamblea(a);
+	  bd.eliminarAsamblea(asamblea);
 	  return Response.noContent().build();
   }
 } 
