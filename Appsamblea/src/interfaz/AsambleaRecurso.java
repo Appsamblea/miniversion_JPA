@@ -30,7 +30,7 @@ public class AsambleaRecurso {
 	  ArrayList<objetosBD.Asamblea> listaBD = bd.getAsambleas();
 	  
 	  ArrayList<Asamblea> lista = new ArrayList<Asamblea>();
-	  for(objetosBD.Asamblea as : listaBD){
+	  /*for(objetosBD.Asamblea as : listaBD){
 		  Asamblea asa = new Asamblea();
 		  asa.setCreador(as.getCreador());
 		  asa.setDescripcion(as.getDescripcion());
@@ -51,7 +51,7 @@ public class AsambleaRecurso {
 		  
 		  asa.setNombre(as.getNombre());
 		  lista.add(asa);
-	  }
+	  }*/
 	  
 	  //Ejemplo... Borrarlo para la versión final
 	  	Asamblea as = new Asamblea();
