@@ -33,7 +33,7 @@ public class EnvioJSON {
 			URL url = new URL(urli);
 			HttpURLConnection connection = (HttpURLConnection) url
 					.openConnection();
-			connection.setRequestMethod("PUT");
+			connection.setRequestMethod("POST");
 			connection.setDoOutput(true);
 			connection.setRequestProperty("Content-Type", "application/json");
 			connection.setRequestProperty("Accept", "application/json");
@@ -98,7 +98,7 @@ public class EnvioJSON {
 		return asamblea.getMensajes();
 	}
 
-	public static void escribirMensaje(Asamblea asamblea, Mensaje m) {
+	public static void escribirMensaje(Mensaje m) {
 		sendJson("http://localhost:8080/Appsamblea/mensajes/crearmensaje", m);
 
 	}

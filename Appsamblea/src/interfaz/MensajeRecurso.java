@@ -2,13 +2,12 @@ package interfaz;
 
 
 import java.util.ArrayList;
-import javax.ws.rs.PUT;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import javax.xml.bind.JAXBElement;
 
 import objetosXML.Mensaje;
 import bd.BD;
@@ -17,19 +16,17 @@ import bd.BD;
 public class MensajeRecurso {
 	  
 //Recibe un mensaje vía JSON	  
-	  @PUT
+	  @POST
 	  @Path("/crearmensaje")
 	  @Consumes(MediaType.APPLICATION_JSON)
 	  public Response crearMensaje(Mensaje m){
-		  System.out.println("Mensaje recibido: " + m.getTexto());
-		  
 		  //Insterarlo en la base de datos
 		  BD bd = new BD();
 		  bd.insertarMensaje(m);
 		  return Response.noContent().build();
 	  }
 	  
-	  @PUT
+	  @POST
 	  @Path("/todosmensajes")
 	  @Consumes(MediaType.APPLICATION_JSON)
 	  @Produces(MediaType.APPLICATION_JSON)

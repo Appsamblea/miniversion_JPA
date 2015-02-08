@@ -1,5 +1,6 @@
 package bd;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.ArrayList;
@@ -76,7 +77,6 @@ public class BD {
     	as.setFecha(asamblea.getFecha());
     	as.setNombre(asamblea.getNombre());
     	as.setId(asamblea.getId());
-    	
     	em = factory.createEntityManager();
     	try{
     		as = em.find(Asamblea.class, as.getId());
@@ -90,9 +90,6 @@ public class BD {
     
     public ArrayList<Asamblea> getAsambleas(){
     	List<Asamblea> asambleas;
-    	if(factory == null){
-    		System.out.println("Factory es null");
-    	}
     	em = factory.createEntityManager();
     	try{
     		asambleas = em.createNamedQuery("todasasambleas").getResultList();
@@ -110,13 +107,17 @@ public class BD {
     public Asamblea insertarMensaje(objetosXML.Mensaje mensaje) {
 		em = factory.createEntityManager();
 		Asamblea asamblea = null;
-		Mensaje m = new Mensaje();
+		objetosBD.Mensaje m = new objetosBD.Mensaje();
 		try{
 			//Buscar la asamblea con el ID de asamblea.
 			asamblea = em.find(Asamblea.class, mensaje.getIdAsamblea());
 			m.setTexto(mensaje.getTexto());
 			m.setEmisor(mensaje.getEmisor());
-			m.setFecha(new Date());
+			Date date = new Date();
+			date.setHours(Calendar.HOUR);
+			date.setMinutes(Calendar.MINUTE);
+			date.setSeconds(Calendar.SECOND);
+			m.setFecha(date);
 			
 			//Insertarle el mensaje
 			asamblea.añadirMensaje(m);
@@ -131,9 +132,7 @@ public class BD {
 
 	public ArrayList<Mensaje> actualizarMensajes(long idAsamblea, Date fecha) {
     	List<Mensaje> mensajes;
-    	if(factory == null){
-    		System.out.println("Factory es null");
-    	}
+    	
     	em = factory.createEntityManager();
     	try{
     		mensajes = em.createNamedQuery("actualizarmensajes")

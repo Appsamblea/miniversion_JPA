@@ -125,14 +125,17 @@ public class Main {
 			}
 			System.out.println("\nEscriba un mensaje, o ESC para salir.");
 			String msg = leerDato();
-			if(msg.equals("ESC")){
+			if(msg.equals("ESC") || msg.equals("esc")){
 				return;
 			}
+			
 			Mensaje m = new Mensaje();
 			m.setEmisor(usuario);
 			m.setFecha(new Date());
 			m.setTexto(msg);
-			EnvioJSON.escribirMensaje(asamblea, m);
+			m.setIdAsamblea(asamblea.getId());
+			
+			EnvioJSON.escribirMensaje(m);
 		} while (true);
 	}
 

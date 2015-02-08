@@ -1,16 +1,13 @@
 package interfaz;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Date;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
-import javax.ws.rs.PUT;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import javax.xml.bind.JAXBElement;
 
 import bd.BD;
 import objetosXML.Asamblea;
@@ -55,24 +52,20 @@ public class AsambleaRecurso {
   } 
   
 //Recibe una asamblea vía JSON	  
-  @PUT
+  @POST
   @Path("/crearasamblea")
   @Consumes(MediaType.APPLICATION_JSON)
   public Response crearAsamblea(Asamblea asamblea){
-	  //Asamblea a = asamblea.getValue();
-	  System.out.println("Asamblea recibida: " + asamblea.getNombre());
-	  //System.exit(0);
 	  BD bd = new BD();
 	  bd.insertarAsamblea(asamblea);
 	  return Response.noContent().build();
   }
 
   
-  @PUT
+  @POST
   @Path("/eliminarasamblea")
   @Consumes(MediaType.APPLICATION_JSON)
   public Response eliminarAsamblea(Asamblea asamblea){
-	  System.out.println("Asamblea recibida: " + asamblea.getNombre());
 	  BD bd = new BD();
 	  bd.eliminarAsamblea(asamblea);
 	  return Response.noContent().build();
