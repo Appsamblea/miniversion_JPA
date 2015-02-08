@@ -10,7 +10,7 @@
   	
     <properties>
       <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver" />
-      <property name="javax.persistence.jdbc.url" value="jdbc:derby:database;create=true" />
+      <property name="javax.persistence.jdbc.url" value="jdbc:derby:appsamblea-database;create=true" />
       <property name="eclipselink.target-database" value="Derby"/>
       <property name="eclipselink.ddl-generation" value="create-tables" />
       <property name="javax.persistence.jdbc.user" value="appsamblea" />

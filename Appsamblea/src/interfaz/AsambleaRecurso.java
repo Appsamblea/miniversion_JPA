@@ -30,7 +30,7 @@ public class AsambleaRecurso {
 	  ArrayList<objetosBD.Asamblea> listaBD = bd.getAsambleas();
 	  
 	  ArrayList<Asamblea> lista = new ArrayList<Asamblea>();
-	  /*for(objetosBD.Asamblea as : listaBD){
+	  for(objetosBD.Asamblea as : listaBD){
 		  Asamblea asa = new Asamblea();
 		  asa.setCreador(as.getCreador());
 		  asa.setDescripcion(as.getDescripcion());
@@ -51,31 +51,12 @@ public class AsambleaRecurso {
 		  
 		  asa.setNombre(as.getNombre());
 		  lista.add(asa);
-	  }*/
+	  }
 	  
-	  //Ejemplo... Borrarlo para la versión final
-	  	Asamblea as = new Asamblea();
-	  	as.setCreador("YO");
-	  	as.setDescripcion("Descripción");
-	  	as.setId((long)0);
-	  	as.setNombre("Nombre");
-	  	
-		  ArrayList<Mensaje> listaMensajes2 = new ArrayList<Mensaje>();
-		  
-			  Mensaje mens = new Mensaje();
-			  mens.setEmisor("Un emisor");
-			  mens.setFecha(new Date());
-			  mens.setId((long)1);
-			  mens.setIdAsamblea((long)2);
-			  mens.setTexto("TEXTO DEL MENSAJE");
-			  listaMensajes2.add(mens);
-		  as.setMensajes(listaMensajes2);
-	  	lista.add(as);
-	  //FIN DEL EJEMPLO	
-	  GenericEntity<List<Asamblea>> glista = new GenericEntity<List<Asamblea>>(Lists.newArrayList(lista)){};
+	  //GenericEntity<List<Asamblea>> glista = new GenericEntity<List<Asamblea>>(Lists.newArrayList(lista)){};
 	  
 	  //Fuente para usar GenericType: http://www.adam-bien.com/roller/abien/entry/jax_rs_returning_a_list
-	  return Response.ok(lista.toArray()).build();					//Da el error
+	  return Response.ok(lista).build();
 
   } 
   

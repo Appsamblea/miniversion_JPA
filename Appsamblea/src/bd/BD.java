@@ -17,6 +17,38 @@ public class BD {
 	
 	public BD(){
 		factory = Persistence.createEntityManagerFactory("appsamblea");
+		//Se comprueba si la BD tiene alguna entrada.
+		em = factory.createEntityManager();
+		int filas = em.createNamedQuery("todasasambleas").setMaxResults(1).getResultList().size();
+		if( filas == 0){
+			em.close();
+			asambleasIniciales();
+			//Si la BD está vacía, se insertan un par de asambleas de ejemplo.
+		}
+		else{
+			em.close();
+			//Por el contrario, no se añade nada.
+		}
+		
+	}
+	
+	private void asambleasIniciales(){
+		objetosXML.Asamblea asamblea = new objetosXML.Asamblea();
+		Date date = new Date();
+		asamblea.setCreador("Carlos");
+		asamblea.setDescripcion("La asamblea tendrá lugar en la ETSIIT");
+		asamblea.setFecha(date);
+		asamblea.setNombre("Asamblea en la ETSIIT");
+		insertarAsamblea(asamblea);
+		
+		date.setMonth(6);
+		date.setHours(20);
+		asamblea = new objetosXML.Asamblea();
+		asamblea.setCreador("Fran");
+		asamblea.setDescripcion("La asamblea tendrá lugar en la Granada y hablaremos de muchas cosas");
+		asamblea.setFecha(date);
+		asamblea.setNombre("Asamblea en Granada");
+		insertarAsamblea(asamblea);
 	}
     
     public void insertarAsamblea(objetosXML.Asamblea asamblea) {
@@ -30,7 +62,7 @@ public class BD {
     	em = factory.createEntityManager();
     	try{
     		em.getTransaction().begin();
-    		em.persist(asamblea);
+    		em.persist(as);
     		em.getTransaction().commit();
     	}finally{
     		em.close();
@@ -47,10 +79,10 @@ public class BD {
     	
     	em = factory.createEntityManager();
     	try{
-    		 as = em.find(Asamblea.class, as.getId());
-    		 em.getTransaction().begin();
-    		 em.remove(as);
-    		 em.getTransaction().commit();
+    		as = em.find(Asamblea.class, as.getId());
+    		em.getTransaction().begin();
+    		em.remove(as);
+    		em.getTransaction().commit();
     	}finally{
     		em.close();
     	}
