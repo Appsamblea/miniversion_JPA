@@ -1,6 +1,7 @@
 package interfaz;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Date;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -12,6 +13,7 @@ import javax.ws.rs.core.Response;
 import javax.xml.bind.JAXBElement;
 import javax.ws.rs.core.GenericEntity;		//Para enviar listas
 
+import jersey.repackaged.com.google.common.collect.Lists;
 import bd.BD;
 import objetosXML.Asamblea;
 import objetosXML.Mensaje;
@@ -57,19 +59,24 @@ public class AsambleaRecurso {
 	  	as.setDescripcion("Descripción");
 	  	as.setId((long)0);
 	  	as.setNombre("Nombre");
+	  	
+		  ArrayList<Mensaje> listaMensajes2 = new ArrayList<Mensaje>();
+		  
+			  Mensaje mens = new Mensaje();
+			  mens.setEmisor("Un emisor");
+			  mens.setFecha(new Date());
+			  mens.setId((long)1);
+			  mens.setIdAsamblea((long)2);
+			  mens.setTexto("TEXTO DEL MENSAJE");
+			  listaMensajes2.add(mens);
+		  as.setMensajes(listaMensajes2);
 	  	lista.add(as);
-	  //FIN DEL EJEMPLO
-	  	
-	  //Con ArrayList peta
-	  //GenericEntity<ArrayList<Asamblea>> glista = new GenericEntity<ArrayList<Asamblea>>(lista){};
-	  	
-	  //Con List también
-	  List<Asamblea> l = lista;
-	  GenericEntity<List<Asamblea>> glista = new GenericEntity<List<Asamblea>>(l){};
-	  //Fuente para usar GenericType: http://www.adam-bien.com/roller/abien/entry/jax_rs_returning_a_list
+	  //FIN DEL EJEMPLO	
+	  GenericEntity<List<Asamblea>> glista = new GenericEntity<List<Asamblea>>(Lists.newArrayList(lista)){};
 	  
-	  //return Response.status(200).entity(lista).build();
-	  return Response.ok(glista).build();
+	  //Fuente para usar GenericType: http://www.adam-bien.com/roller/abien/entry/jax_rs_returning_a_list
+	  return Response.ok(lista.toArray()).build();					//Da el error
+
   } 
   
 //Recibe una asamblea vía JSON	  

@@ -2,11 +2,9 @@ package objetosXML;
 
 import java.util.Date;
 
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
 
-@XmlRootElement(name = "mensaje")
+@XmlRootElement
 public class Mensaje {
 	private long id;
 	private String texto;

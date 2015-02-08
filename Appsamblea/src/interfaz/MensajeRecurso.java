@@ -48,6 +48,6 @@ public class MensajeRecurso {
 			  men.setTexto(men.getTexto());
 			  lista.add(men);
 		  }
-		  return Response.status(200).entity(lista).build();
+		  return Response.ok(lista).build();
 	  }
 }
