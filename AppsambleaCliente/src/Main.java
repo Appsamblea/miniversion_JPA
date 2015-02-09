@@ -73,7 +73,7 @@ public class Main {
 	private static void verAsambleas() {
 		List<Asamblea> asambleas = EnvioJSON.verProximasAsambleas();
 		int asambleaId = -1;
-		do {
+		//do {
 			for (Asamblea as : asambleas) {
 				System.out.println(as.getId() + " - " + as.getNombre());
 			}
@@ -88,10 +88,11 @@ public class Main {
 			if (aElegida != null) {
 				accionesAsamblea(aElegida);
 			}
-		} while (asambleaId != 0);
+		//} while (asambleaId != 0);
 	}
 
 	private static void accionesAsamblea(Asamblea aElegida) {
+		boolean fin=false;
 		do {
 			System.out.println("Datos de la Asamblea: \n" + "ID: "
 					+ aElegida.getId() + "\n" + "Nombre: "
@@ -105,13 +106,17 @@ public class Main {
 			switch (dato) {
 			case 1:
 				verMensajes(aElegida);
-				return;
+				break;
 			case 2:
 				EnvioJSON.eliminarAsamblea(aElegida);
+				fin=true;
+				break;
 			case 3:
-				return;
+				fin=true;
+				break;
 			}
-		} while (true);
+		} while (!fin);
+		verAsambleas();
 	}
 
 

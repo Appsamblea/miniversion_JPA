@@ -42,7 +42,8 @@ public class EnvioJSON {
 			osw.write(json);
 			osw.flush();
 			osw.close();
-			//System.err.println(connection.getResponseCode());
+			int respuesta = connection.getResponseCode();
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
