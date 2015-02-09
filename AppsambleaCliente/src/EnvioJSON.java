@@ -42,7 +42,7 @@ public class EnvioJSON {
 			osw.write(json);
 			osw.flush();
 			osw.close();
-			System.err.println(connection.getResponseCode());
+			//System.err.println(connection.getResponseCode());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -102,34 +102,4 @@ public class EnvioJSON {
 		sendJson("http://localhost:8080/Appsamblea/mensajes/crearmensaje", m);
 
 	}
-
-	/*
-	 * private static void escribirMensaje(Client client) { WebTarget servicio =
-	 * client.target(UriBuilder.fromUri(
-	 * "http://localhost:8080/mensajes").build()); // .... // Recibir lista de
-	 * asambleas // Determinar el chat de qué asamblea se va a ver // .... //
-	 * Introducir mensaje y meterlo en la variable mensaje long idAsamblea = 1;
-	 * String mensaje = "Mensaje de prueba"; // Se envía el mensaje try {
-	 * JSONObject json = new JSONObject(); json.put("Usuario", usuario);
-	 * json.put("Mensaje", mensaje); json.put("idAsamblea", idAsamblea); try {
-	 * // ... Enviar al servicio REST URL url = new URL(
-	 * "http://localhost:8080/Appsamblea/mensajes/crearmensaje"); URLConnection
-	 * conexion = url.openConnection(); conexion.setDoOutput(true);
-	 * conexion.setDoOutput(true); conexion.setRequestProperty("Content-Type",
-	 * "application/json"); conexion.setConnectTimeout(5000);
-	 * conexion.setReadTimeout(5000);
-	 * 
-	 * OutputStreamWriter out = new OutputStreamWriter(
-	 * conexion.getOutputStream()); out.write(json.toString()); out.close(); //
-	 * Se reciben los datos que envíe el servidor (Sólo a modo de // prueba)
-	 * BufferedReader in = new BufferedReader(new InputStreamReader(
-	 * conexion.getInputStream())); System.out.println("Respuesta: " +
-	 * in.readLine()); // } catch (Exception e) { System.out
-	 * .println("Ha ocurrido una excepción al enviar el objeto JSON");
-	 * System.out.println("Mensaje: " + e.getMessage()); System.exit(0); }
-	 * 
-	 * } catch (Exception e) {
-	 * System.out.println("Ha ocurrido una excepción con el objeto JSON:");
-	 * System.out.println("Mensaje: " + e.getMessage()); System.exit(0); } }
-	 */
 }

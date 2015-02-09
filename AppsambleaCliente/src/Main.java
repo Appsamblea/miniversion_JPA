@@ -123,7 +123,7 @@ public class Main {
 				System.out.println(m.getEmisor() + " Dijo (" + m.getFecha()
 						+ "): " + m.getTexto());
 			}
-			System.out.println("\nEscriba un mensaje, o ESC para salir.");
+			System.out.println("\nEscriba un mensaje, o escriba 'ESC' para salir.");
 			String msg = leerDato();
 			if(msg.equals("ESC") || msg.equals("esc")){
 				return;
@@ -136,6 +136,7 @@ public class Main {
 			m.setIdAsamblea(asamblea.getId());
 			
 			EnvioJSON.escribirMensaje(m);
+			asamblea.getMensajes().add(m);
 		} while (true);
 	}
 
